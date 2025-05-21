@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Kite Redirect</title>
-  <script>
-    window.onload = function () {
+  <head><title>Zerodha Redirect</title></head>
+  <body>
+    <script>
       const params = new URLSearchParams(window.location.search);
-      const requestToken = params.get('request_token');
-      if (requestToken) {
-        window.location.href = myapp://kite_callback?request_token=${requestToken};
+      const token = params.get("request_token");
+      if (token) {
+        window.location = `myapp://callback?request_token=${token}`;
       } else {
-        document.body.innerText = "Request token not found!";
+        document.body.innerText = "Login failed. No token received.";
       }
-    };
-  </script>
-</head>
-<body>
-  Redirecting to app...
+    </script>
+  </body>
+</html>
+
 </body>
 </html>
